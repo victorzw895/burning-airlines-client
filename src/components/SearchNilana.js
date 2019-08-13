@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -60,4 +58,3 @@ class SearchNilana extends Component {
 }
 
 export default SearchNilana;
->>>>>>> 3db3a93a222aa6f49811db4b03c95797b8ef9a72
