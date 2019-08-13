@@ -11,7 +11,6 @@ class SearchNilana extends Component {
     };
     fetchFligthsByOriginAndDestination = () => {
         const { origin, destination } = this.state;
-        // if origin is empty alert with message 'you should inform the book origin'
         if (origin === '' || destination === '') {
             alert('Your should inform the origin and destination');
             return;

@@ -10,19 +10,20 @@ import SearchFlight from './components/SearchFlight'
 import SearchNilana from './components/SearchNilana' // TEMPORARY TESTING ONLY
 import SearchPaulina from './components/SearchPaulina' // TEMPORARY TESTING ONLY
 import Flight from './components/Flight';
+import SearchNilana from './components/SearchNilana';
 
 // Not a functional components. Just a JSX collection
 const Routes = (
   <Router>
-      <div>
-          <Route exact path="/" component={ Home } />
-          <Route exact path="/airplanes" component={ Airplanes } />
-          <Route exact path="/flights" component={ Flights } />
-          <Route exact path="/search_flight" component={ SearchFlight } />
-          <Route exact path="/search_nilana" component={ SearchNilana } /> { /* TEMP */ }
-          <Route exact path="/search_paulina" component={ SearchPaulina } /> { /* TEMP */ }
-          <Route path="/flight/:number" component={ Flight } />
-      </div>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/airplanes" component={Airplanes} />
+      <Route exact path="/flights" component={Flights} />
+      <Route exact path="/search_flight" component={SearchFlight} />
+      <Route exact path="/search_nilana" component={SearchNilana} /> { /* TEMP */}
+      <Route exact path="/search_paulina" component={SearchPaulina} /> { /* TEMP */}
+      <Route path="/flight/:number" component={Flight} />
+    </div>
   </Router>
 );
 

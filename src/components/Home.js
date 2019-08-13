@@ -12,6 +12,7 @@ class Home extends Component {
                 <p><Link to="/flights">View Flights</Link></p>
                 <h2>This is the PART for USERS</h2>
                 <p><Link to="/search_flight">Search Flights</Link></p>
+                <p><Link to="/search_nilana">Search Flights - Nilana</Link></p>
             </div>
         )
         // if not admin
