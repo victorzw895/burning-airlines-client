@@ -10,7 +10,7 @@ import SearchFlight from './components/SearchFlight'
 import SearchNilana from './components/SearchNilana' // TEMPORARY TESTING ONLY
 import SearchPaulina from './components/SearchPaulina' // TEMPORARY TESTING ONLY
 import Flight from './components/Flight';
-import SearchNilana from './components/SearchNilana';
+
 
 // Not a functional components. Just a JSX collection
 const Routes = (
