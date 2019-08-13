@@ -40,7 +40,7 @@ class SearchNilana extends Component {
                 <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} />
                 <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
 
-                {/* loop in react to add images */}
+
                 {items.map((item) => (
                     <div>
                         <p>Date: {item.date}</p>
