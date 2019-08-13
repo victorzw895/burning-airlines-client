@@ -6,7 +6,6 @@ class Flight extends Component {
         return (
             <div>
                 <h2> Flight Number: { this.props.match.params.number }</h2>
-                <p>Flight Number: { this.props.match.params.number }</p>
                 <p><Link to="/">Back Home</Link></p>
             </div>
         )
