@@ -1,15 +1,17 @@
-import React from 'react';
-import SearchPaulina from './SearchPaulina'
-import SearchNilana from './SearchNilana';
+IRRELEVANT
 
-function App() {
-  return (
-    <div className="App">
-      Burning airlines Coming soon
-      <SearchPaulina/>
-      <SearchNilana />
-    </div>
-  );
-}
+// import React from 'react';
+// import SearchPaulina from './SearchPaulina'
+// import SearchNilana from './SearchNilana';
 
-export default App;
+// function App() {
+//   return (
+//     <div className="App">
+//       Burning airlines Coming soon
+//       <SearchPaulina/>
+//       <SearchNilana />
+//     </div>
+//   );
+// }
+
+// export default App;
