@@ -6,6 +6,8 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Airplanes from './components/Airplanes';
 import Flights from './components/Flights';
+import SearchFlight from './components/SearchFlight'
+import Flight from './components/Flight';
 
 // Not a functional components. Just a JSX collection
 const Routes = (
@@ -13,7 +15,9 @@ const Routes = (
       <div>
           <Route exact path="/" component={ Home } />
           <Route exact path="/airplanes" component={ Airplanes } />
-          <Route path="/flights/:number" component={ Flights } />
+          <Route exact path="/flights" component={ Flights } />
+          <Route exact path="/search_flight" component={ SearchFlight } />
+          <Route path="/flight/:number" component={ Flight } />
       </div>
   </Router>
 );
