@@ -21,8 +21,8 @@ const fetchPlanes = () => {
 }
 fetchPlanes();
 }
-savePlane(planes) {
-        axios.post(SERVER_URL, {planes: planes}).then((result) => {
+savePlane(p, r, c) {
+  axios.post(SERVER_URL, {planeNo: p, row: r, columns: c }).then((result) => {
           this.setState({ planes: [...this.state.planes, result.data]})
           console.log('gfgfggh', this.state.planes);
         });
@@ -53,7 +53,7 @@ class Form extends Component {
 
   _handleSubmit(e){
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(this.state.planeNo, this.state.row, this.state.columns);
   }
 
 _handlePlane(e){
