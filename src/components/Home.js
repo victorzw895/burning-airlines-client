@@ -8,12 +8,11 @@ class Home extends Component {
         return (
             <div>
                 <h2>This is the Home Page for ADMIN ONLY</h2>
-                <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */ }
-                <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */ }
+                <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */}
+                <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */}
 
                 <h2>This is the PART for USERS</h2>
-                <p><Link to="/search_flight">Search Flights</Link></p> {/* NILANA */ }
-                <p><Link to="/search_nilana">Search Flights - Nilana</Link></p> {/* NILANA */ }
+                <p><Link to="/search_nilana">Search Flights - Nilana</Link></p> {/* NILANA */}
             </div>
         )
         // if not admin

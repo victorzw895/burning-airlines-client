@@ -15,9 +15,13 @@ class SearchNilana extends Component {
             return;
         };
 
-        axios.get(`http://localhost:3000/search/${origin}/${destination}`).then((response) => {
 
-            this.setState({ items: response.data });
+        //axios.get(`http://localhost:3000/search/${origin}/${destination}`).then((response) => {
+        axios.get("http://localhost:3000/flights.json").then((response) => {
+            const data = response.data.filter((f) =>
+                f.origin === origin && f.destination === destination
+            );
+            this.setState({ items: data });
         });
 
     };
@@ -29,18 +33,23 @@ class SearchNilana extends Component {
         this.setState({ destination: event.target.value })
     }
 
+    // handleSubmit(event) {
+    //     event.preventDefault();
+    //     this.props.onSubmit(this.state.query);
+    // }
+
 
     render() {
         const { items } = this.state;
         return (
-            <div>
+            <div className="wrapper" >
                 <p className="origin">Search Flight</p>
                 <h1 className="companyName">VPN Airlane</h1>
                 <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} />
                 <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} />
                 <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
                 <button className="cancel" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Cancel</button>
-                <button className="save" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Save</button>
+
 
 
                 {items.map((item) => (
@@ -49,10 +58,11 @@ class SearchNilana extends Component {
                         {/* <p>Flight: {item.flight}</p> */}
                         <p>Origin: {item.origin}</p>
                         <p>Destination: {item.destination}</p>
-                        <p>Airplane: {item.airplane_id}</p>
+                        <p>Airplane: {item.airplane.planeNo}</p>
                     </div>
                 ))}
             </div>
+
 
 
 
