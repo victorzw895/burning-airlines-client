@@ -12,11 +12,15 @@ class Home extends Component {
                 <h2>This is the Home Page for ADMIN ONLY</h2>
                 <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */ }
                 <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */ }
+<<<<<<< HEAD
                 <img className="planeMoving" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Silhouette_An-124.svg/1024px-Silhouette_An-124.svg.png" alt="plane"/>
 
                 <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */}
                 <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */}
 
+=======
+                <img className="planeMoving" src="https://images.vexels.com/media/users/3/145794/isolated/preview/7b344efb846a36f9ed32fbb83d5d59ed-plane-ascending-by-vexels.png" alt="plane"/>
+>>>>>>> 63eeba126d30f78f309a75e2f8c783819b16af68
                 <h2>This is the PART for USERS</h2>
                 <p><Link to="/search_nilana">Search Flights - Nilana</Link></p> {/* NILANA */}
             </div>
