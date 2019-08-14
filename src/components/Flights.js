@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const FLIGHT_URL = 'http://localhost:3000/flights.json'
-const PLANE_URL = 'http://localhost:3000/airplanes.json'
+// const FLIGHT_URL = 'http://localhost:3000/flights.json'
+const FLIGHT_URL = 'http://18649033.ngrok.io/flights.json'
+// const PLANE_URL = 'http://localhost:3000/airplanes.json'
+const PLANE_URL = 'http://18649033.ngrok.io/airplanes.json'
 
 class Flights extends Component {
     constructor() {

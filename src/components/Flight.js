@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 class Flight extends Component {
     render() {
