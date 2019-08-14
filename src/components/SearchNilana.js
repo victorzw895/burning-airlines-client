@@ -26,7 +26,10 @@ class SearchNilana extends Component {
                 f.destination
             );
 
-            this.setState({ originSelect, destinationSelect });
+            this.setState({
+                originSelect: [...new Set(originSelect)],
+                destinationSelect: [...new Set(destinationSelect)],
+            });
         });
     }
 
