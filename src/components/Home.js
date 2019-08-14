@@ -8,16 +8,15 @@ class Home extends Component {
         return (
           <body id="worldMap">
             <div>
+                <h1 id="anima_text">Burning Airlines</h1>
                 <h2>This is the Home Page for ADMIN ONLY</h2>
-<<<<<<< HEAD
                 <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */ }
                 <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */ }
-                <img className="planeMoving" src="https://images.vexels.com/media/users/3/145794/isolated/preview/7b344efb846a36f9ed32fbb83d5d59ed-plane-ascending-by-vexels.png" alt="plane"/>
-=======
+                <img className="planeMoving" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Silhouette_An-124.svg/1024px-Silhouette_An-124.svg.png" alt="plane"/>
+
                 <p><Link to="/airplanes">View Airplanes</Link></p> {/* PAULINA */}
                 <p><Link to="/flights">View Flights</Link></p> {/* VICTOR */}
 
->>>>>>> 75e24662fe8c358dd10952fade18e57b60d18867
                 <h2>This is the PART for USERS</h2>
                 <p><Link to="/search_nilana">Search Flights - Nilana</Link></p> {/* NILANA */}
             </div>

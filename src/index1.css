@@ -1,16 +1,38 @@
 body#worldMap {
-background: url(https://mapsvg.com/mapsvg/maps/not-calibrated/world_high.svg)
+background: url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1033&q=80)
 center no-repeat fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -ms-background-size: cover;
 background-size: cover;
-    height: -webkit-fill-available;
+height: -webkit-fill-available;
     margin-top: -21px;
+    text-align: center;
+    color: blue;
+    margin: 0px;
 }
 
+a{
+  color: blue;
+}
 
+#anima_text{
+  /* text-transform: uppercase; */
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_NzsyA5D5-0MXwNCAyJkgF7Z1z4Ez93Ywx8gdSyTPPbR96e_L");
+  background-size: 100% 100%;
+  color:transparent;
+  -webkit-background-clip:text;
+  -ms-background-clip:text;
+  -moz-background-clip:text;
+  letter-spacing: 5px;
+  font-family: 'Indie Flower', cursive;
+  padding-bottom: 35px;
+  margin-top: 30px;
 
+}
 
 .worldMap {
 height: 100%;
@@ -18,7 +40,7 @@ height: 100%;
 
 
 .planeMoving {
-  height: 80px;
+  height: 70px;
 
 }
 
@@ -26,6 +48,7 @@ height: 100%;
   position: absolute;
   top: 45%;
   right: -500px;
+  transform: rotate(90deg);
    animation: planeMoving 7s linear 0s infinite reverse;
   z-index: 99;
 }
