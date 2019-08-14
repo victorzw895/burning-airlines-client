@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Things I realised
+### this.props vs this.state
+* this.props are parameters that are used from either child or parent Component via component attribute. These were .state that were passed onto a seperate Component
+eg. 
+`<ParentComponent passes={this.state.ofSelf}>
+`<ChildComponent uses={this.props.ofParent}>`
+* this.state are parameters saved in the state of the component via constructors and this.state and updated with .setState
+
 ## Available Scripts
 
 In the project directory, you can run:
