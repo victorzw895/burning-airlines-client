@@ -22,7 +22,7 @@ const fetchPlanes = () => {
 fetchPlanes();
 }
 savePlane(p, r, c) {
-        axios.post(SERVER_URL, {planeNo: p, row: r, columns: c }).then((result) => {
+  axios.post(SERVER_URL, {planeNo: p, row: r, columns: c }).then((result) => {
           this.setState({ planes: [...this.state.planes, result.data]})
           console.log('gfgfggh', this.state.planes);
         });
