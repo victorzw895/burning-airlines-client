@@ -33,10 +33,6 @@ class SearchNilana extends Component {
         this.setState({ destination: event.target.value })
     }
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
-    //     this.props.onSubmit(this.state.query);
-    // }
 
 
     render() {
@@ -44,16 +40,16 @@ class SearchNilana extends Component {
         return (
             <div className="wrapper" >
                 <p className="origin">Search Flight</p>
-                <h1 className="companyName">VPN Airlane</h1>
+                <h1 className="companyName">VPN Airlanes</h1>
                 <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} />
                 <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} />
                 <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
-                <button className="cancel" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Cancel</button>
 
+                <hr />
 
 
                 {items.map((item) => (
-                    <div>
+                    <div className="results">
                         <p>Date: {item.dateTime}</p>
                         {/* <p>Flight: {item.flight}</p> */}
                         <p>Origin: {item.origin}</p>
@@ -61,6 +57,7 @@ class SearchNilana extends Component {
                         <p>Airplane: {item.airplane.planeNo}</p>
                     </div>
                 ))}
+
             </div>
 
 
