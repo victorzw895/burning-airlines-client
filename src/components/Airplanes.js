@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Airplanes extends Component {
   constructor(){
@@ -80,7 +81,7 @@ _handleRow(e){
 class AllPlanes extends Component {
   render(){
     return(
-      <div>{this.props.planes.map( (p) => <p>{p.plane} {p.row} {p.column} </p>)}  </div>
+      <div>{this.props.planes.map( (p) => <p key={p.plane}> PLANE NAME: {p.plane} ROW: {p.row} COLUMN: {p.column} </p>)}  </div>
     )
   }
 }
