@@ -45,7 +45,7 @@ class Flights extends Component {
         // console.log(ap_Id, planeName)
         // id = ap.id
         // planeName = ap.planeNo
-        //     }        
+        //     }
         // )
         // console.log(airplanes);
         axios.post(FLIGHT_URL, {dateTime: date, origin: ori, destination: des, airplane_id: planeId}).then((result) => {
@@ -106,7 +106,7 @@ class CreateFlight extends Component {
                 setTimeout( fetchPlanes, 10000);
             });
         };
-    
+
         fetchPlanes();
     }
 
@@ -173,12 +173,12 @@ class FlightList extends Component {
         return (
             <div>
                 Coming soon, list of available flights
-                {this.props.flights.map( (f) => 
+                {this.props.flights.map( (f) =>
                     <p>
-                        Date: {f.dateTime} 
-                        Destination: {f.destination} 
+                        Date: {f.dateTime}
+                        Destination: {f.destination}
                         {/* Flight: {f.flight}  */}
-                        Origin: {f.origin} 
+                        Origin: {f.origin}
                         Plane: {f.airplane.planeNo}
                     </p>)
                 }

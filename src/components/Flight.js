@@ -11,6 +11,8 @@ class Flight extends Component {
             <div>
 
                 <h2> Flight Number: { this.props.match.params.number }</h2>
+
+                <h3> Select a seat</h3>
                     <h2><i class="fas fa-user"></i></h2>
                 <div className="container">
       <form className='seating' onSubmit={this.selectSeat}>
@@ -22,12 +24,14 @@ class Flight extends Component {
       <button id="A2" className="seat" onClick={this.changeHandler}>A2</button>
       <button id="A1" className="seat" onClick={this.changeHandler}>A1
 </button>
-      <button className="seat-button">submit</button>
+      <button className="seat-button">book sit</button>
       </form>
       </div>
 
                 <p><Link to="/">Back Home</Link></p>
-            </div>
+
+                </div>
+
         )
     }
 }
