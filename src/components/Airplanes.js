@@ -2,17 +2,30 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const SERVER_URL = 'http://localhost:3000/airplanes.json';
+
 class Airplanes extends Component {
   constructor(){
-super();
-this.state = {
-planes : [] };
-this.savePlane = this.savePlane.bind(this);
+        super();
+        this.state = {
+            planes : [] };
+            this.savePlane = this.savePlane.bind(this);
 
-  }
-  savePlane(plane) {
-this.setState({ planes: [...this.state.planes, plane]})
-console.log(plane);
+
+const fetchPlanes = () => {
+  axios.get(SERVER_URL).then((result) => {
+    console.log(result.data);
+    this.setState({planes: result.data});
+    setTimeout(fetchPlanes, 20000)
+  });
+}
+fetchPlanes();
+}
+savePlane(p, r, c) {
+        axios.post(SERVER_URL, {planeNo: p, row: r, columns: c }).then((result) => {
+          this.setState({ planes: [...this.state.planes, result.data]})
+          console.log('gfgfggh', this.state.planes);
+        });
   }
     render() {
         return (
@@ -31,7 +44,7 @@ console.log(plane);
 class Form extends Component {
   constructor(){
     super();
-    this.state = { plane: '', column: '', row: ''}
+    this.state = { planeNo: '', columns: '', row: ''}
     this._handleRow= this._handleRow.bind(this);
     this._handlePlane= this._handlePlane.bind(this);
     this._handleColumn= this._handleColumn.bind(this);
@@ -40,19 +53,17 @@ class Form extends Component {
 
   _handleSubmit(e){
     e.preventDefault();
-    console.log(this.state.plane);
-    this.props.onSubmit(this.state);
-this.setState( { plane: '', row: '', column: '' });
+    this.props.onSubmit(this.state.planeNo, this.state.row, this.state.columns);
   }
 
 _handlePlane(e){
   console.log("works");
-  this.setState({plane: e.target.value});
+  this.setState({planeNo: e.target.value});
 }
 
 _handleColumn(e){
   console.log("works");
-    this.setState({column: e.target.value});
+    this.setState({columns: e.target.value});
 }
 
 _handleRow(e){
@@ -63,14 +74,14 @@ _handleRow(e){
   render(){
     return(
       <form onSubmit={this._handleSubmit}>
-      <label>Plane name
-      <input type="text" value={ this.state.plane} onChange={this._handlePlane}/>
+      <label>Plane number
+      <input type="number" defaultValue="" onInput={this._handlePlane}/>
       </label>
       <label>Nr of columns
-      <input type="text" value={ this.state.column} onChange={this._handleColumn}/>
+      <input type="text" defaultValue="" onInput={this._handleColumn}/>
       </label>
       <label>Nr of rows
-      <input type="number" value={ this.state.row} onChange={this._handleRow}/>
+      <input type="number" defaultValue="" onInput={this._handleRow}/>
       </label>
       <input type="submit" value="Add a new airplane" />
       </form>
@@ -78,10 +89,14 @@ _handleRow(e){
   }
 }
 
+// const LinkToPlaneNo = (props) => <Link to=> Plane Name: {props.planeNo}</Link>
+
 class AllPlanes extends Component {
+
   render(){
     return(
-      <div>{this.props.planes.map( (p) => <p key={p.plane}> PLANE NAME: {p.plane} ROW: {p.row} COLUMN: {p.column} </p>)}  </div>
+        <div>{this.props.planes.map( (p) => <p key={p.id}><Link to={`/flight/${p.planeNo}`}> PLANE NAME: {p.planeNo} </Link>ROW: {p.row} COLUMN: {p.columns} </p>)}
+      </div>
     )
   }
 }
