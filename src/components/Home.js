@@ -17,7 +17,7 @@ class Home extends Component {
                         <img className="planeMoving" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Silhouette_An-124.svg/1024px-Silhouette_An-124.svg.png" alt="plane" />
 
                         {/* <h2>This is the PART for USERS</h2> */}
-                        <h1 className="companyLogo">VPN Airlanes</h1>
+                        {/* <h1 className="companyLogo">VPN Airlanes</h1> */}
 
                     </div>
                 </div >
