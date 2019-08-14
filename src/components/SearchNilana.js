@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-
 class SearchNilana extends Component {
     state = {
         items: [],
@@ -35,22 +34,26 @@ class SearchNilana extends Component {
         const { items } = this.state;
         return (
             <div>
-                <p className="origin">Search</p>
+                <p className="origin">Search Flight</p>
+                <h1 className="companyName">VPN Airlane</h1>
                 <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} />
                 <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} />
                 <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
+                <button className="cancel" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Cancel</button>
+                <button className="save" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Save</button>
 
 
                 {items.map((item) => (
                     <div>
-                        <p>Date: {item.date}</p>
-                        <p>Flight: {item.flight}</p>
+                        <p>Date: {item.dateTime}</p>
+                        {/* <p>Flight: {item.flight}</p> */}
                         <p>Origin: {item.origin}</p>
                         <p>Destination: {item.destination}</p>
-                        <p>Airplane: {item.airplane}</p>
+                        <p>Airplane: {item.airplane_id}</p>
                     </div>
                 ))}
             </div>
+
 
 
         )
