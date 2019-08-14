@@ -9,10 +9,10 @@
   -ms-background-size: cover;
   background-size: cover;
   height: -webkit-fill-available;
-  margin-top: -21px;
+  margin-top: -31px;
   text-align: center;
   color: blue;
-  margin: 0px;
+  /* margin: 0px; */
 }
 
 a {
