@@ -1,0 +1,36 @@
+body#worldMap {
+background: url(https://mapsvg.com/mapsvg/maps/not-calibrated/world_high.svg)
+center no-repeat fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-ms-background-size: cover;
+background-size: cover;
+    height: -webkit-fill-available;
+    margin-top: -21px;
+}
+
+
+
+
+.worldMap {
+height: 100%;
+}
+
+
+.planeMoving {
+  height: 80px;
+
+}
+
+.planeMoving {
+  position: absolute;
+  top: 45%;
+  right: -500px;
+   animation: planeMoving 7s linear 0s infinite reverse;
+  z-index: 99;
+}
+
+@keyframes planeMoving {
+  from {right:-500px;}
+  to {right: 102%;}
+}
