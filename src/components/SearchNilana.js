@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
+
 
 
 class SearchNilana extends Component {
@@ -39,6 +42,7 @@ class SearchNilana extends Component {
         const { items } = this.state;
         return (
             <div className="wrapper" >
+                <Navigation />
                 <p className="origin">Search Flight</p>
                 <h1 className="companyName">VPN Airlanes</h1>
                 <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} />
@@ -54,7 +58,7 @@ class SearchNilana extends Component {
                         {/* <p>Flight: {item.flight}</p> */}
                         <p>Origin: {item.origin}</p>
                         <p>Destination: {item.destination}</p>
-                        <p>Airplane: {item.airplane.planeNo}</p>
+                        <p><Link to={`/flight/${item.airplane.planeNo}`}>Airplane: {item.airplane.planeNo}</Link></p>
                     </div>
                 ))}
 
