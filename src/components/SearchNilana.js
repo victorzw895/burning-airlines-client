@@ -7,7 +7,28 @@ class SearchNilana extends Component {
         items: [],
         origin: '',
         destination: '',
+        originSelect: [],
+        destinationSelect: [],
     };
+
+
+    fetchFligths() {
+        return axios.get("http://localhost:3000/flights.json");
+    }
+
+    componentDidMount() {
+        this.fetchFligths().then((response) => {
+            const originSelect = response.data.map((f) =>
+                f.origin
+            );
+            const destinationSelect = response.data.map((f) =>
+                f.destination
+            );
+
+            this.setState({ originSelect, destinationSelect });
+        });
+    }
+
     fetchFligthsByOriginAndDestination = () => {
         const { origin, destination } = this.state;
         if (origin === '' || destination === '') {
@@ -15,15 +36,12 @@ class SearchNilana extends Component {
             return;
         };
 
-
-        //axios.get(`http://localhost:3000/search/${origin}/${destination}`).then((response) => {
-        axios.get("http://localhost:3000/flights.json").then((response) => {
+        this.fetchFligths().then((response) => {
             const data = response.data.filter((f) =>
                 f.origin === origin && f.destination === destination
             );
             this.setState({ items: data });
         });
-
     };
 
     setOrigin = (event) => {
@@ -36,13 +54,26 @@ class SearchNilana extends Component {
 
 
     render() {
-        const { items } = this.state;
+        const { items, origin, originSelect, destination, destinationSelect } = this.state;
         return (
             <div className="wrapper" >
                 <p className="origin">Search Flight</p>
                 <h1 className="companyName">VPN Airlanes</h1>
-                <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} />
-                <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} />
+                <select value={origin} onChange={this.setOrigin}>
+                    <option>Choose your origin</option>
+                    {originSelect.map((originOption) => (
+                        <option value={originOption}>{originOption}</option>
+                    ))}
+                </select>
+                <select value={destination} onChange={this.setDestination}>
+                    <option>Choose your destination</option>
+
+                    {destinationSelect.map((destinationOption) => (
+                        <option value={destinationOption}>{destinationOption}</option>
+                    ))}
+                </select>
+                {/* <input className="search" type="search" placeholder="search by origin" onInput={this.setOrigin} /> */}
+                {/* <input className="search" type="search" placeholder="search by destination" onInput={this.setDestination} /> */}
                 <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
 
                 <hr />
