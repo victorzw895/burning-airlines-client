@@ -62,3 +62,48 @@ a {
     right: 102%;
   }
 }
+
+
+.container{
+position: absolute;
+left: 37%;
+margin: 50px 0 50px 0;
+}
+.seating{
+  position: relative;
+  text-align: center;
+
+}
+
+.seat{
+  color: #464646;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-color: #cccccc;
+  border-radius: 15%;
+  font-size: 10px;
+}
+.seat:hover{
+   background-color: pink;
+}
+
+.seat-button{
+   position: absolute;
+  text-transform: uppercase;
+  background-color: rgba(255, 0, 42, 0.5);
+  font-weight: bold;
+  height: 25px;
+  border: none;
+  font-size: 8px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(255, 0, 42, 0.5);
+  left: 10px;
+  bottom: -35px; /* disguusting hack to keep the button relative to this shitty seating display */
+  width:60px;
+}
+.seat-button:hover{
+  transform: translate(1px,-1px);
+  box-shadow: -2px 5px 6px rgb(50, 49, 49, 0.4);
+  transition: .2s;
+}
