@@ -6,16 +6,16 @@ import axios from 'axios';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-const SERVER_URL = 'http://localhost:3000/airplanes.json';
-// const SERVER_URL = 'http://18649033.ngrok.io/airplanes.json';
+// const SERVER_URL = 'http://localhost:3000/airplanes.json';
+const SERVER_URL = 'http://18649033.ngrok.io/airplanes.json';
 
 class Flight extends Component {
     render() {
         return (
             <div>
-              <h2> Flight Number: { this.props.match.params.number }</h2>
-              <h3> Select seat:</h3>
-              <Seats number={this.props.match.params.number}/>
+      <h2> Flight Number: { this.props.match.params.number }</h2>
+
+      <Seats number={this.props.match.params.number}/>
 
               {/*
 //
@@ -49,12 +49,10 @@ class Seats extends Component {
       this.state={
         // rows: [],
         // columns: [],
-        rows: 0,
-        columns: 0,
-        seats: []
-
-
-      }
+      rows: 0,
+      columns: 0,
+      seats: []
+    }
 
 
       const fetchSeats = () => {
@@ -68,39 +66,39 @@ class Seats extends Component {
           const c =  Number(plane[0].columns);
         //   this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
           this.setState({rows: r, columns: c, seats: Array(r*c).fill(null) })
-        }
-      )
-      }
-      fetchSeats();
-    }
+                                }
+                              )
+                            }
+            fetchSeats();
+          }
 
     renderSeats = (rows, columns) => {
-      const r = rows;
-      const c = columns;
-      let table = [];
-      for (let i = 0; i < r; i++) {
-        let rows = [];
-        for (let j = 0; j < c; j++) {
-          rows.push(<button className="columns">👨</button>)
-        }
-        table.push(<div className="row">{rows}</div>)
-      }
-      return (
-        <div className="board-row">{table}</div>
-      )
-    }
+            const r = rows;
+            const c = columns;
+            let table = [];
+            for (let i = 0; i < r; i++) {
+            let rows = [];
+            for (let j = 0; j < c; j++) {
+            rows.push(<button className="columns">👨</button>)
+                }
+            table.push(<div className="row">{rows}</div>)
+                }
+            return (
+            <div className="board-row">{table}</div>
+            )
+          }
 
       render() {
         return (
-          <div>
-            <h1>hi</h1>
+          <div class="container">
+            <h1>Select your seat</h1>
             {this.renderSeats(this.state.rows, this.state.columns)}
             {/* {this.state.rows.map((r) => <div className="board-row"> <button> [   ]</button></div>)} */ }
+            
           </div>
 
         )
-
-      }
+    }
 }
 
 export default Flight;
