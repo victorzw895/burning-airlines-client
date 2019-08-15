@@ -9,6 +9,7 @@ class Airplanes extends Component {
   constructor(){
         super();
         this.state = {
+            plane: [],
             planes : [] };
             this.savePlane = this.savePlane.bind(this);
 
@@ -16,7 +17,7 @@ class Airplanes extends Component {
 const fetchPlanes = () => {
   axios.get(SERVER_URL).then((result) => {
     console.log(result.data);
-    this.setState({planes: result.data});
+    this.setState({planes: result.data, plane: result.data[result.data.length -1]});
     setTimeout(fetchPlanes, 20000)
   });
 }
@@ -36,7 +37,7 @@ savePlane(p, r, c) {
                 <p><Link to="/flights">View Flights</Link></p>
                 <p><Link to="/">Back Home</Link></p>
                 <Form onSubmit={this.savePlane}/>
-                <AllPlanes planes={this.state.planes}/>
+                <AllPlanes planes={this.state.planes} plane={this.state.plane}/>
             </div>
         );
     }
@@ -98,6 +99,7 @@ class AllPlanes extends Component {
   constructor() {
     super();
     this.state = {
+    
       plane: []
     }
     this.savePlane = this.savePlane.bind( this );
@@ -115,7 +117,7 @@ class AllPlanes extends Component {
         <div>
           <PlaneList onClick={ this.savePlane } planes={this.props.planes}/>
           
-          <PlaneDisplay planes={ this.props.planes } plane={this.state.plane}/>
+          <PlaneDisplay planes={ this.props.planes } clickPlane={this.state.plane} lastPlane={this.props.plane}/>
       </div>
     )
   }
@@ -139,9 +141,10 @@ class PlaneList extends Component {
     e.preventDefault();
     this.setState({
       name: e.target.getAttribute('data_name'), 
-      rows: Array(Number(e.target.getAttribute('data_rows'))).fill(null), 
-      columns: Array(Number(e.target.getAttribute('data_columns'))).fill(null)
-      // columns: e.target.getAttribute('data_columns')
+      // rows: Array(Number(e.target.getAttribute('data_rows'))).fill(null), 
+      rows: e.target.getAttribute('data_rows'), 
+      // columns: Array(Number(e.target.getAttribute('data_columns'))).fill(null)
+      columns: e.target.getAttribute('data_columns')
     });
     this.props.onClick( this.state.name, this.state.rows, this.state.columns );
   }
@@ -160,40 +163,45 @@ class PlaneList extends Component {
   }
 }
 
-class Square extends Component {
-  renderSquare(c) {
-    for (let i = 0; i < c; i++) {
-      return (
-        <button className="square" />
-      );
-    }
-  }
-  render() {
-    return (
-      <div>
-        {this.renderSquare}
-      </div>
-    )
-  }
-}
+// function Square (c) {
+//   for (let i = 0; i < c; i++) {
+//     return (
+//       <button className="square" />
+//     );
+//   }
+// }
+  // render() {
+  //   return (
+  //     <div>
+  //       {this.renderSquare}
+  //     </div>
+  //   )
+  // }
+// }
 class PlaneDisplay extends Component {
-  renderDisplay(rows, columns) {
+  renderDisplay = (rows, columns) => {
     const r = Number(rows);
     const c = Number(columns);
+    let table = [];
     for (let i = 0; i < r; i++) {
-      return (
-        <div className="board-row">
-          <Square c={c}/>
-        </div>
-      )
+      let rows = [];
+      for (let j = 0; j < c; j++) {
+        rows.push(<td className="columns">{`${i} ${j}`}</td>)
+      }
+      table.push(<tr className="rows">{rows}</tr>)
     }
+    return (
+      <div className="board-row">
+        {table}
+      </div>
+    )
   }
 
   render() {
     return(
       <div>
-        {this.props.plane.map((plane) => console.log(plane))}
-        {/* {this.renderDisplay} */}
+        {/* {console.log(this.props.lastPlane)} */}
+        {this.renderDisplay(this.props.lastPlane.row, this.props.lastPlane.columns)}
       </div>
     )
   }
