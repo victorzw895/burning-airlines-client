@@ -61,10 +61,10 @@ class Flights extends Component {
 
     render() {
         return (
-            <div>
+            <div class="container">
                 <Navigation />
-                <h2>This is the Flights page, Admin select flights and book flights</h2>
-
+                <h2>Admin create flights page</h2>
+                  <hr />
                 <CreateFlight onSubmit={ this.saveFlights } flights={ this.state.flights } />
                 <FlightList flights={ this.state.flights } />
             </div>
@@ -145,9 +145,9 @@ class CreateFlight extends Component {
             <div>
                 <form onSubmit={ this._handleSubmit }>
                     <h2>Burning Airlines</h2>
-                    <input type="submit" value="Create" />
 
-                    <label>Flight #</label>
+
+                    {/* // <label>Flight #</label> */}
 
                     {/* <input type="text" onInput={ this._handleFlightInput }/> */}
                     <label>Date</label>
@@ -161,6 +161,7 @@ class CreateFlight extends Component {
                         {/* {this.props.flights.map( (f) => <option key={f.id}>{f.airplane.planeNo}</option>)} */}
                         {this.state.airplanes.map( (f) => <option key={f.id}>{f.planeNo}</option>)}
                     </select>
+                    <input type="submit" value="Create" />
                     {/* <input type="submit" value="Save" /> */}
 
                 </form>
@@ -174,7 +175,7 @@ class FlightList extends Component {
     render() {
         return (
             <div>
-                Coming soon, list of available flights
+                
                 {this.props.flights.map( (f) =>
                     <p>
                         Date: {f.dateTime}
