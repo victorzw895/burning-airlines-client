@@ -33,6 +33,13 @@ body {
   text-align: center;
 }
 
+.render {
+  letter-spacing: 3px;
+  margin: 25px;
+  text-align: center;
+  margin: 60px;
+}
+
 .searchArea {
   height: 50px;
   margin: 10px;
@@ -86,15 +93,10 @@ body {
 }
 
 .backHome {
-  background-color: #573C2C;
-  color: white;
-  height: 30px;
-  padding: 5px;
-  width: 10%;
-  font-size: 20px;
-  border: 1px solid rgb(127, 128, 131);
-  border-radius: 5px;
-  text-decoration: none;
+  text-align: center;
+  margin: 50px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .viewFlights {
