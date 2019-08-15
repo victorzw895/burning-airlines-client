@@ -66,11 +66,22 @@ class Seats extends Component {
           const r = plane[0].row;
           const c =  Number(plane[0].columns);
         //   this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
-          this.setState({rows: r, columns: c, seats: Array(r*c).fill(null) })
+          this.setState({rows: r, columns: c })
         }
       )
       }
       fetchSeats();
+      this._handleClick = this._handleClick.bind( this );
+    }
+
+    _handleClick( r, c ) {
+        const seats = this.state.seats.slice();
+        if (seats.some(seat => seat.row === r && seat.column === c)) {
+            console.log('NO!');
+            return;
+        }
+        this.setState({seats: [...this.state.seats, {row: r, column: c}]})
+        console.log(this.state.seats);
     }
 
     renderSeats = (rows, columns) => {
@@ -80,7 +91,7 @@ class Seats extends Component {
       for (let i = 0; i < r; i++) {
         let rows = [];
         for (let j = 0; j < c; j++) {
-          rows.push(<button className="columns">👨</button>)
+          rows.push(<button onClick={ () => this._handleClick(i, j)} className="columns">O</button>)
         }
         table.push(<div className="row">{rows}</div>)
       }
