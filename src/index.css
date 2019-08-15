@@ -28,11 +28,23 @@ body {
   margin: 10px auto 0 auto;
 }
 
+.container {
+  text-align: center;
+}
+
 .searchArea {
   height: 50px;
   margin: 10px;
   font-size: 20px;
   width: 300px;
+}
+
+.searchAirplanes {
+  height: 50px;
+  margin: 10px;
+  font-size: 20px;
+  width: 300px;
+  margin: 10px;
 }
 
 .submit {
@@ -80,6 +92,11 @@ body {
   font-size: 20px;
   border: 1px solid rgb(127, 128, 131);
   border-radius: 5px;
+}
+
+.viewFlights {
+  display: inline;
+  font-size: 20px;
 }
 
 .board-row {

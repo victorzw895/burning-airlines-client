@@ -35,10 +35,10 @@ class Airplanes extends Component {
     return (
       <div>
         {/* <h2>This is the Airplanes page. Where admin can add new airplanes</h2> */}
-        <p><Link to="/flights">View Flights</Link></p>
-        <p><Link className="backHome" to="/">Back Home</Link></p>
+        <p><Link className="viewFlights" to="/flights">View Flights</Link></p>
         <Form onSubmit={this.savePlane} />
         <AllPlanes planes={this.state.planes} plane={this.state.plane} />
+        <p><Link className="backHome" to="/">Back Home</Link></p>
       </div>
     );
   }
@@ -79,15 +79,15 @@ class Form extends Component {
     return (
       <form onSubmit={this._handleSubmit}>
         <label>Plane number
-      <input className="results" type="number" defaultValue="" onInput={this._handlePlane} />
+      <input className="SearchArea" type="number" defaultValue="" onInput={this._handlePlane} />
         </label>
         <label>Nr of columns
-      <input className="results" type="text" defaultValue="" onInput={this._handleColumn} />
+      <input className="SearchArea" type="text" defaultValue="" onInput={this._handleColumn} />
         </label>
         <label>Nr of rows
-      <input className="results" type="number" defaultValue="" onInput={this._handleRow} />
+      <input className="SearchArea" type="number" defaultValue="" onInput={this._handleRow} />
         </label>
-        <input className="results" type="submit" value="Add a new airplane" />
+        <input className="SearchArea" type="submit" value="Add a new airplane" />
       </form>
     );
   }

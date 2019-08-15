@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom';
 class Admin extends Component {
   render() {
     return (
-      <div className="menu">
-        <h1>Admin Area</h1>
-        <button className="margin-left0"><Link to="/airplanes">View Airplanes</Link></button>
-        <button><Link to="/flights">View Flights</Link></button>
+      <div className="nav">
+        <div className="wrapper">
+          <div className="container">
+            <h1>Admin Area</h1>
+            <button className="logo"><Link to="/#">Back Home</Link></button>
+            <button ><Link className="searchAirplanes" to="/airplanes">View Airplanes</Link></button>
+            <button><Link className="searchAirplanes" to="/flights">View Flights</Link></button>
+          </div>
+        </div>
       </div>
 
     )
