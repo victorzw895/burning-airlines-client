@@ -55,6 +55,7 @@ class Seats extends Component {
 
       }
 
+
       const fetchSeats = () => {
         axios.get(SERVER_URL).then((result) => {
           console.log(result.data);
