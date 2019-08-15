@@ -65,8 +65,6 @@ class Seats extends Component {
         const r = plane[0].row;
         const c = Number(plane[0].columns);
         //   this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
-<<<<<<< HEAD
-<<<<<<< HEAD
           this.setState({rows: r, columns: c })
         }
       )
@@ -98,46 +96,20 @@ class Seats extends Component {
       }
       return (
         <div className="board-row">{table}</div>
-=======
-        this.setState({ rows: r, columns: c, seats: Array(r * c).fill(null) })
-      }
->>>>>>> c4cfbb5e075e579438a7d0404c85903eb426e3d9
-=======
-        this.setState({ rows: r, columns: c, seats: Array(r * c).fill(null) })
-      }
->>>>>>> c4cfbb5e075e579438a7d0404c85903eb426e3d9
       )
     }
-    fetchSeats();
-  }
 
-  renderSeats = (rows, columns) => {
-    const r = rows;
-    const c = columns;
-    let table = [];
-    for (let i = 0; i < r; i++) {
-      let rows = [];
-      for (let j = 0; j < c; j++) {
-        rows.push(<button className="columns">👨</button>)
-      }
-      table.push(<div className="row">{rows}</div>)
+    render() {
+        return (
+            <div class="container">
+            <h1>Select your seat</h1>
+            {this.renderSeats(this.state.rows, this.state.columns)}
+            {/* {this.state.rows.map((r) => <div className="board-row"> <button> [   ]</button></div>)} */}
+
+            </div>
+        
+        )
     }
-    return (
-      <div className="board-row">{table}</div>
-    )
-  }
-
-  render() {
-    return (
-      <div class="container">
-        <h1>Select your seat</h1>
-        {this.renderSeats(this.state.rows, this.state.columns)}
-        {/* {this.state.rows.map((r) => <div className="board-row"> <button> [   ]</button></div>)} */}
-
-      </div>
-
-    )
-  }
 }
 
 export default Flight;
