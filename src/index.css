@@ -45,6 +45,7 @@ body {
   font-size: 20px;
   width: 300px;
   margin: 10px;
+  text-decoration: none;
 }
 
 .submit {
@@ -92,11 +93,13 @@ body {
   font-size: 20px;
   border: 1px solid rgb(127, 128, 131);
   border-radius: 5px;
+  text-decoration: none;
 }
 
 .viewFlights {
   display: inline;
   font-size: 20px;
+  text-decoration: none;
 }
 
 .board-row {
@@ -140,6 +143,12 @@ nav ul li a {
 .logo {
   margin-left: 0;
   font-size: 20px;
+}
+
+.backH {
+  margin-left: 0;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 table {
