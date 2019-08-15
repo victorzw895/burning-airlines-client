@@ -8,6 +8,7 @@ import Airplanes from './components/Airplanes'; // WIREFRAME 1
 import Flights from './components/Flights'; // WIREFRAME 2
 import SearchNilana from './components/SearchNilana' // TEMPORARY TESTING ONLY
 import Flight from './components/Flight'; // WIREFRAME 4
+import Admin from './components/Admin';
 
 
 // Not a functional components. Just a JSX collection
@@ -19,6 +20,7 @@ const Routes = (
       <Route exact path="/flights" component={Flights} />
       <Route exact path="/search_nilana" component={SearchNilana} /> { /* TEMP */}
       <Route path="/flight/:number" component={Flight} />
+
     </div>
   </Router>
 );

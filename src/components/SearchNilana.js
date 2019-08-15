@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
+import Admin from './Admin';
+
+
 
 class SearchNilana extends Component {
 
@@ -93,6 +96,8 @@ class SearchNilana extends Component {
 
         return (
             <>
+
+
                 <Navigation />
                 <div className="wrapper" >
                     <p className="origin">Search Flight</p>
@@ -118,7 +123,9 @@ class SearchNilana extends Component {
                     {tableItems}
                 </div>
             </>
+
         )
+
     }
 }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
+import Admin from './Admin';
+
 
 
 class Home extends Component {
@@ -9,7 +11,9 @@ class Home extends Component {
         // if admin
         return (
             <>
+
                 <Navigation />
+
                 <div id="worldMap">
                     <div>
                         <h1 id="anima_text">Burning Airlines</h1>
