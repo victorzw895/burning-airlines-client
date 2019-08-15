@@ -20,7 +20,7 @@ const Routes = (
       <Route exact path="/flights" component={Flights} />
       <Route exact path="/search_nilana" component={SearchNilana} /> { /* TEMP */}
       <Route path="/flight/:number" component={Flight} />
-
+      <Route path="/admin" component={Admin} />
     </div>
   </Router>
 );

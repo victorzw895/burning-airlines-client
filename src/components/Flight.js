@@ -14,7 +14,7 @@ class Flight extends Component {
     return (
       <div>
         <h2> Flight Number: {this.props.match.params.number}</h2>
-        <h3> Select seat:</h3>
+
         <Seats number={this.props.match.params.number} />
 
         {/*
@@ -52,8 +52,6 @@ class Seats extends Component {
       rows: 0,
       columns: 0,
       seats: []
-
-
     }
 
 
@@ -92,14 +90,14 @@ class Seats extends Component {
 
   render() {
     return (
-      <div>
-        <h1>hi</h1>
+      <div class="container">
+        <h1>Select your seat</h1>
         {this.renderSeats(this.state.rows, this.state.columns)}
         {/* {this.state.rows.map((r) => <div className="board-row"> <button> [   ]</button></div>)} */}
+
       </div>
 
     )
-
   }
 }
 
