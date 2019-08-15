@@ -66,6 +66,7 @@ class Seats extends Component {
         const c = Number(plane[0].columns);
         //   this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
 <<<<<<< HEAD
+<<<<<<< HEAD
           this.setState({rows: r, columns: c })
         }
       )
@@ -97,6 +98,10 @@ class Seats extends Component {
       }
       return (
         <div className="board-row">{table}</div>
+=======
+        this.setState({ rows: r, columns: c, seats: Array(r * c).fill(null) })
+      }
+>>>>>>> c4cfbb5e075e579438a7d0404c85903eb426e3d9
 =======
         this.setState({ rows: r, columns: c, seats: Array(r * c).fill(null) })
       }
