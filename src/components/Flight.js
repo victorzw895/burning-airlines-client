@@ -6,7 +6,8 @@ import axios from 'axios';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-const SERVER_URL = 'http://18649033.ngrok.io/airplanes.json';
+const SERVER_URL = 'http://localhost:3000/airplanes.json';
+// const SERVER_URL = 'http://18649033.ngrok.io/airplanes.json';
 
 class Flight extends Component {
     render() {
@@ -14,7 +15,7 @@ class Flight extends Component {
             <div>
               <h2> Flight Number: { this.props.match.params.number }</h2>
               <h3> Select seat:</h3>
-              <Seats />
+              <Seats number={this.props.match.params.number}/>
 
               {/*
 //
@@ -61,9 +62,11 @@ class Seats extends Component {
           console.log(result.data);
           console.log(result.data[0].row);
           console.log(Number(result.data[0].columns));
-          const r = result.data[0].row;
-          const c =  Number(result.data[0].columns);
-          // this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
+          console.log(this.props.number);
+          const plane = result.data.filter((p) => p.planeNo === Number(this.props.number))
+          const r = plane[0].row;
+          const c =  Number(plane[0].columns);
+        //   this.setState({rows: Array(r).fill(null), columns: Array(c).fill(null), seats: Array(r*c).fill(null) })
           this.setState({rows: r, columns: c, seats: Array(r*c).fill(null) })
         }
       )
