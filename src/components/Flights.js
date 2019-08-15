@@ -175,14 +175,14 @@ class FlightList extends Component {
     render() {
         return (
             <div>
-                
+
                 {this.props.flights.map( (f) =>
                     <p>
-                        Date: {f.dateTime}
-                        Destination: {f.destination}
+                        Date: {f.dateTime}   |
+                        Destination: {f.destination} |
                         {/* Flight: {f.flight}  */}
-                        Origin: {f.origin}
-                        Plane: {f.airplane.planeNo}
+                        Origin: {f.origin}  |
+                        Plane: {f.airplane.planeNo} 
                     </p>)
                 }
             </div>

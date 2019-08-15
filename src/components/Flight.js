@@ -13,7 +13,7 @@ class Flight extends Component {
   render() {
     return (
       <div>
-        <h2> Flight Number: {this.props.match.params.number}</h2>
+        <h2 id="flightid"> Flight Number: {this.props.match.params.number}</h2>
 
         <Seats number={this.props.match.params.number} />
 
@@ -107,7 +107,7 @@ class Seats extends Component {
             {/* {this.state.rows.map((r) => <div className="board-row"> <button> [   ]</button></div>)} */}
 
             </div>
-        
+
         )
     }
 }
