@@ -77,20 +77,29 @@ class Seats extends Component {
         const seats = this.state.seats.slice();
         if (seats.some(seat => seat.row === r && seat.column === c)) {
             console.log('NO!');
-            return;
+            return false;
         }
         this.setState({seats: [...this.state.seats, {row: r, column: c}]})
         console.log(this.state.seats);
+        return true;
     }
 
     renderSeats = (rows, columns) => {
       const r = rows;
       const c = columns;
+      const seats = this.state.seats.slice();
+    //   let reserved = false;
+    //   if (seats.some(seat => seat.row === r && seat.column === c) {
+    //     reserved = true;
+    //   }
       let table = [];
       for (let i = 0; i < r; i++) {
         let rows = [];
         for (let j = 0; j < c; j++) {
-          rows.push(<button onClick={ () => this._handleClick(i, j)} className="columns">O</button>)
+          rows.push(<button 
+            onClick={ () => this._handleClick(i, j)} 
+            className={seats.some(seat => seat.row === r && seat.column === c) ? "reserved" : "columns"}
+            >O</button>)
         }
         table.push(<div className="row">{rows}</div>)
       }

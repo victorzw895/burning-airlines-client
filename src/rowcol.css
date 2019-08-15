@@ -5,3 +5,7 @@
 .rows {
     border-style: solid;
 }
+
+.reserved {
+    background-color: grey;
+}
