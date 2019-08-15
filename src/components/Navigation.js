@@ -7,9 +7,10 @@ class Navigation extends Component {
       <div className="menu">
         <nav className="default-margin">
           <ul>
+            <li className="logo"><Link to="/#">VPN Airlanes</Link></li>
+            <li><Link to="/search_nilana">Search Flights</Link></li>
             <li className="margin-left0"><Link to="/airplanes">View Airplanes</Link></li>
             <li><Link to="/flights">View Flights</Link></li>
-            <li><Link to="/search_nilana">Search Flights</Link></li>
           </ul>
         </nav>
       </div>

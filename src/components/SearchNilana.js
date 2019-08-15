@@ -17,6 +17,11 @@ class SearchNilana extends Component {
         return axios.get("http://localhost:3000/flights.json");
     }
 
+    // componentDiMount()is invoked immediately after a component is mounted. 
+    // Initialization that requires DOM nodes should go here. If you need to 
+    // load data from a remote endpoint, 
+    // this is a good place to instantiate the network request.
+
     componentDidMount() {
         this.fetchFligths().then((response) => {
             const originSelect = response.data.map((f) =>
@@ -32,6 +37,9 @@ class SearchNilana extends Component {
             });
         });
     }
+    // [...new Set()]Set objects are collections of values. 
+    // You can iterate through the elements of a set in insertion order. 
+    // A value in the Set may only occur once; it is unique in the Set's collection.
 
     fetchFligthsByOriginAndDestination = () => {
         const { origin, destination } = this.state;
@@ -58,39 +66,58 @@ class SearchNilana extends Component {
 
     render() {
         const { items, origin, originSelect, destination, destinationSelect } = this.state;
+
+        let tableItems
+
+        if (items.length > 0) {
+            tableItems = (
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Airplane</th>
+                    </tr>
+                    {items.map((item) => (
+                        <tr>
+                            <td>{item.dateTime}</td>
+                            {/* <td>Flight: {item.flight}</td> */}
+                            <td>{item.origin}</td>
+                            <td>{item.destination}</td>
+                            <td><Link className="table-item" to={`/flight/${item.airplane.planeNo}`}>{item.airplane.planeNo}</Link></td>
+                        </tr>
+                    ))}
+                </table>
+            );
+        }
+
         return (
-            <div className="wrapper" >
+            <>
                 <Navigation />
-                <p className="origin">Search Flight</p>
-                <h1 className="companyName">VPN Airlanes</h1>
-                <select value={origin} onChange={this.setOrigin}>
-                    <option>Choose your origin</option>
-                    {originSelect.map((originOption) => (
-                        <option value={originOption}>{originOption}</option>
-                    ))}
-                </select>
-                <select value={destination} onChange={this.setDestination}>
-                    <option>Choose your destination</option>
+                <div className="wrapper" >
+                    <p className="origin">Search Flight</p>
+                    <h1 className="companyName">VPN Airlanes</h1>
+                    <select className="searchArea" value={origin} onChange={this.setOrigin}>
+                        <option>Choose your origin</option>
+                        {originSelect.map((originOption) => (
+                            <option value={originOption}>{originOption}</option>
+                        ))}
+                    </select>
+                    <select className="searchArea" value={destination} onChange={this.setDestination}>
+                        <option>Choose your destination</option>
 
-                    {destinationSelect.map((destinationOption) => (
-                        <option value={destinationOption}>{destinationOption}</option>
-                    ))}
-                </select>
+                        {destinationSelect.map((destinationOption) => (
+                            <option value={destinationOption}>{destinationOption}</option>
+                        ))}
+                    </select>
 
-                <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
+                    <button className="submit" type="button" onClick={this.fetchFligthsByOriginAndDestination}>Search</button>
 
-                <hr />
+                    <hr />
 
-                {items.map((item) => (
-                    <div className="results">
-                        <p>Date: {item.dateTime}</p>
-                        {/* <p>Flight: {item.flight}</p> */}
-                        <p>Origin: {item.origin}</p>
-                        <p>Destination: {item.destination}</p>
-                        <p><Link to={`/flight/${item.airplane.planeNo}`}>Airplane: {item.airplane.planeNo}</Link></p>
-                    </div>
-                ))}
-            </div>
+                    {tableItems}
+                </div>
+            </>
         )
     }
 }
