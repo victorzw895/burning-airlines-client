@@ -71,8 +71,19 @@ body {
   font-size: 20px;
 }
 
-hr {
-  background-color: black;
+.backHome {
+  background-color: #573C2C;
+  color: white;
+  height: 30px;
+  padding: 5px;
+  width: 10%;
+  font-size: 20px;
+  border: 1px solid rgb(127, 128, 131);
+  border-radius: 5px;
+}
+
+.board-row {
+  margin: 40px;
 }
 
 /* NAVIGATION */
@@ -114,9 +125,6 @@ nav ul li a {
   font-size: 20px;
 }
 
-/* NAVIGATION */
-
-/* TABLE */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
