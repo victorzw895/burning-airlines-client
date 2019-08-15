@@ -34,14 +34,14 @@ class Airplanes extends Component {
   render() {
     return (
       <div>
-      <p><Link className="backHome" to="/">Back Home</Link></p>
-      <div class="view_airplanes">
-        {/* <h2>This is the Airplanes page. Where admin can add new airplanes</h2> */}
-        <p><Link className="viewFlights" to="/flights">View Flights</Link></p>
-        <Form onSubmit={this.savePlane} />
-        <AllPlanes planes={this.state.planes} plane={this.state.plane} />
+        <p><Link className="backHome" to="/">Back Home</Link></p>
+        <div class="view_airplanes">
+          <h2>This is the Airplanes page. Where admin can add new airplanes</h2>
+          <p><Link className="viewFlights" to="/flights">View Flights</Link></p>
+          <Form onSubmit={this.savePlane} />
+          <AllPlanes planes={this.state.planes} plane={this.state.plane} />
 
-      </div>
+        </div>
       </div>
     );
   }
@@ -203,7 +203,7 @@ class PlaneDisplay extends Component {
 
   render() {
     return (
-      <div>
+      <div class="render">
         {/* {console.log(this.props.lastPlane)} */}
         {this.renderDisplay(this.props.lastPlane.row, this.props.lastPlane.columns)}
       </div>
