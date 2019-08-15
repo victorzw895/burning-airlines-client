@@ -34,11 +34,14 @@ class Airplanes extends Component {
   render() {
     return (
       <div>
+      <p><Link className="backHome" to="/">Back Home</Link></p>
+      <div class="view_airplanes">
         {/* <h2>This is the Airplanes page. Where admin can add new airplanes</h2> */}
         <p><Link className="viewFlights" to="/flights">View Flights</Link></p>
         <Form onSubmit={this.savePlane} />
         <AllPlanes planes={this.state.planes} plane={this.state.plane} />
-        <p><Link className="backHome" to="/">Back Home</Link></p>
+
+      </div>
       </div>
     );
   }
@@ -142,7 +145,7 @@ class PlaneList extends Component {
     e.preventDefault();
     this.setState({
       name: e.target.getAttribute('data_name'),
-      // rows: Array(Number(e.target.getAttribute('data_rows'))).fill(null), 
+      // rows: Array(Number(e.target.getAttribute('data_rows'))).fill(null),
       rows: e.target.getAttribute('data_rows'),
       // columns: Array(Number(e.target.getAttribute('data_columns'))).fill(null)
       columns: e.target.getAttribute('data_columns')
