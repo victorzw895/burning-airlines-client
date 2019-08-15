@@ -16,7 +16,7 @@ class Home extends Component {
 
                 <div id="worldMap">
                     <div>
-                        <h1 id="anima_text">Burning Airlines</h1>
+                   <h1 id="anima_text">Burning Airlines</h1> 
 
                         <img className="planeMoving" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Silhouette_An-124.svg/1024px-Silhouette_An-124.svg.png" alt="plane" />
 

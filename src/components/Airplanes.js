@@ -158,7 +158,7 @@ class PlaneList extends Component {
       <div>
         {this.props.planes.map((p) =>
           <p key={p.id} onClick={this._handleClick}>
-            <a href={`/flight/${p.planeNo}`} data_name={p.planeNo} data_rows={p.row} data_columns={p.columns}> PLANE NAME: {p.planeNo} </a>
+            <a href={`/flight/${p.planeNo}`} data_name={p.planeNo} data_rows={p.row} data_columns={p.columns}> PLANE No: {p.planeNo} </a>
             ROW: {p.row} COLUMN: {p.columns}
           </p>)
         }
