@@ -71,6 +71,7 @@ class Seats extends Component {
       }
       fetchSeats();
       this._handleClick = this._handleClick.bind( this );
+      this.renderSeats = this.renderSeats.bind( this );
     }
 
     _handleClick( r, c ) {
@@ -79,7 +80,7 @@ class Seats extends Component {
             console.log('NO!');
             return false;
         }
-        this.setState({seats: [...this.state.seats, {row: r, column: c}]})
+        this.setState({seats: [...this.state.seats, {row: r, column: c, taken: true}]})
         console.log(this.state.seats);
         return true;
     }
@@ -98,7 +99,7 @@ class Seats extends Component {
         for (let j = 0; j < c; j++) {
           rows.push(<button 
             onClick={ () => this._handleClick(i, j)} 
-            className={seats.some(seat => seat.row === r && seat.column === c) ? "reserved" : "columns"}
+            className={seats.taken ? "reserved" : "columns"}
             >O</button>)
         }
         table.push(<div className="row">{rows}</div>)
